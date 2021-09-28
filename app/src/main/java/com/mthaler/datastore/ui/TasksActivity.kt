@@ -20,9 +20,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.codelab.android.datastore.databinding.ActivityTasksBinding
 import com.mthaler.datastore.data.SortOrder
+import com.mthaler.datastore.data.TasksRepository
 import com.mthaler.datastore.data.UserPreferencesRepository
+import com.mthaler.datastore.databinding.ActivityTasksBinding
 
 class TasksActivity : AppCompatActivity() {
 
@@ -46,7 +47,7 @@ class TasksActivity : AppCompatActivity() {
         setupFilterListeners(viewModel)
         setupSort()
 
-        viewModel.tasksUiModel.observe(owner = this) { tasksUiModel ->
+        viewModel.tasksUiModel.observe(this) { tasksUiModel ->
             adapter.submitList(tasksUiModel.tasks)
             updateSort(tasksUiModel.sortOrder)
             binding.showCompletedSwitch.isChecked = tasksUiModel.showCompleted

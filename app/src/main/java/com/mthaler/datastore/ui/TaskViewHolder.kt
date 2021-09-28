@@ -4,6 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.mthaler.datastore.R
+import com.mthaler.datastore.data.Task
+import com.mthaler.datastore.data.TaskPriority
+import com.mthaler.datastore.databinding.TaskViewItemBinding
 import java.text.SimpleDateFormat
 import java.util.Locale
 
